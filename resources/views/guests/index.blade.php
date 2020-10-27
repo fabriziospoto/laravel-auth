@@ -12,6 +12,11 @@
                             <p class="card-text">{{Str::substr($post->body,0,100)}}...</p>
                             <a href="{{ route('guest.posts.show',$post->slug) }}" class="btn btn-primary">Dettagli</a>
                         </div>
+                        @forelse ($post->tags as $tag)
+                            <p>#{{ $tag->name }}</p>
+                        @empty
+
+                        @endforelse
                     </div>
                 </div>
             @endforeach

@@ -23,8 +23,8 @@ class PostController extends Controller
         // $posts = Post::where('user_id',Auth::id())->first();
         //dd(Auth::user()->role_id);
         if (Auth::user()->role_id==2) { //se l'utente è super mostro tutto
-            $posts = Post::all();
-        } elseif (Auth::user()->role_id==1) { //Altrimenti gli mostro solo i suoi
+            $posts = Post::paginate(5); //Tolgo all perché paginate non funziona con all
+        } else {
             $posts = Post::where('user_id',Auth::id())->orderBy('created_at','desc')->paginate(5);
         }
         return view('admin.posts.index', compact('posts'));
