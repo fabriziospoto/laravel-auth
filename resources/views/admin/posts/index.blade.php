@@ -33,6 +33,6 @@
     </tbody>
 </table>
 <div class="mt-5 justify-content-center">
-    {{ $posts->links() }}
+    {{-- {{ $posts->links() }} --}}
 </div>
 @endsection
